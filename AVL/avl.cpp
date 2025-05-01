@@ -42,7 +42,7 @@ Node<T>* AVL<T>::rotateleft(Node<T>* node){
 
     r->height=std::max(getheight(r->left),getheight(r->right))+1;
     
-    return node;
+    return r;
 
 }
 
@@ -61,7 +61,7 @@ Node<T>* AVL<T>::rotateright(Node<T>* node){
 
     l->height=std::max(getheight(l->left),getheight(l->right))+1;
     
-    return node;
+    return l;
 
 }
 
@@ -204,7 +204,7 @@ Node<T>* AVL<T>::remove(Node<T>*& node,T data){
 
     }
 
-    //node->height=std::max(getheight(node->left),getheight(node->right))+1;
+    node->height=std::max(getheight(node->left),getheight(node->right))+1;
 
     int balance=getbalancefactor(node);
 
